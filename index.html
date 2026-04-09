@@ -1364,7 +1364,7 @@ function generatePaletteCard() {
     // Draw palette swatches
     const swatchSize = 56;
     const gap = 12;
-    const colors = data.pallete.map(p => p.color);
+    const colors = data.palette.map(p => p.color);
     const totalWidth = colors.length * swatchSize + (colors.length - 1) * gap;
     const startX = (canvas.width - totalWidth) / 2;
     const swatchY = 190;
