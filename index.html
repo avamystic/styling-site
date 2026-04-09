@@ -622,12 +622,130 @@
             color: var(--mid-gray);
         }
 
+        /* HERO SEASON MOSAIC */
+        .hero-mosaic {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 6px;
+            width: 100%;
+            max-width: 900px;
+            margin-bottom: 48px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .mosaic-item {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 3/4;
+        }
+
+        .mosaic-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .mosaic-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .mosaic-item .mosaic-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 16px 16px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.5));
+            color: var(--white);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 16px;
+            font-style: italic;
+            letter-spacing: 1px;
+        }
+
+        /* RESULT HERO IMAGE */
+        .result-hero-image {
+            width: 100%;
+            height: 70vh;
+            min-height: 400px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .result-hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .result-hero-image .image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40%;
+            background: linear-gradient(transparent, var(--off-white));
+        }
+
+        /* EDITORIAL PHOTO BREAK */
+        .photo-break {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px;
+            margin: 80px 0;
+            max-width: 960px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 24px;
+        }
+
+        .photo-break img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .photo-break img:hover {
+            transform: scale(1.02);
+        }
+
+        .photo-break.single {
+            grid-template-columns: 1fr;
+        }
+
+        .photo-break.single img {
+            height: 480px;
+        }
+
+        /* PHOTO CAPTION */
+        .photo-caption {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 14px;
+            font-style: italic;
+            color: var(--mid-gray);
+            text-align: center;
+            margin-top: 12px;
+            padding: 0 24px;
+            max-width: 960px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         /* RESPONSIVE */
         @media (max-width: 600px) {
             nav { padding: 0 24px; }
             .options-grid.visual { grid-template-columns: repeat(2, 1fr); }
             .result-palette .color { width: 36px; height: 52px; }
             .palette-detail { grid-template-columns: repeat(3, 1fr); }
+            .hero-mosaic { grid-template-columns: repeat(2, 1fr); gap: 4px; }
+            .mosaic-item { aspect-ratio: 1; }
+            .photo-break { grid-template-columns: 1fr; }
+            .photo-break img { height: 240px; }
+            .photo-break.single img { height: 300px; }
+            .result-hero-image { height: 50vh; min-height: 300px; }
         }
     </style>
 </head>
@@ -645,6 +763,24 @@
         Discover the palette that was made for you. Seven questions stand between you and the colors that will transform your wardrobe forever.
     </p>
     <button class="cta-button" onclick="startQuiz()">Begin the Analysis</button>
+    <div class="hero-mosaic">
+        <div class="mosaic-item">
+            <img src="https://images.unsplash.com/photo-1462275646964-a0e3c11f18a6?w=500&q=80" alt="Spring cherry blossoms">
+            <div class="mosaic-label">Spring</div>
+        </div>
+        <div class="mosaic-item">
+            <img src="https://images.unsplash.com/photo-1499002238440-d264edd596ec?w=500&q=80" alt="Summer lavender field">
+            <div class="mosaic-label">Summer</div>
+        </div>
+        <div class="mosaic-item">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=80" alt="Autumn forest path">
+            <div class="mosaic-label">Autumn</div>
+        </div>
+        <div class="mosaic-item">
+            <img src="https://images.unsplash.com/photo-1491002052546-bf38f186af56?w=500&q=80" alt="Winter snow landscape">
+            <div class="mosaic-label">Winter</div>
+        </div>
+    </div>
 </section>
 
 <div class="season-strip"><div></div><div></div><div></div><div></div></div>
@@ -822,7 +958,16 @@ const seasonData = {
         clothing: 'Your wardrobe should feel like a garden in bloom. Lean into warm, clear colours: poppy red over burgundy, peach over dusty rose, warm turquoise over teal. Camel and warm beige are your best neutrals\u2014far more flattering than black or grey.',
         makeup: 'Peach blush, warm coral lip, and golden bronzer are your holy trinity. For eyes, think warm browns, soft coppers, and mossy greens. Your lip colours should lean warm\u2014salmon, apricot, or a warm nude.',
         hair: 'Golden highlights, honey tones, and warm strawberry shades complement your colouring beautifully. Avoid ashy or cool-toned colours that fight your natural warmth.',
-        celebs: ['Blake Lively', 'Taylor Swift', 'Margot Robbie', 'Amanda Seyfried', 'Scarlett Johansson', 'Gigi Hadid']
+        celebs: ['Blake Lively', 'Taylor Swift', 'Margot Robbie', 'Amanda Seyfried', 'Scarlett Johansson', 'Gigi Hadid'],
+        photos: {
+            hero: 'https://images.unsplash.com/photo-1462275646964-a0e3c11f18a6?w=1400&q=80',
+            editorial: [
+                'https://images.unsplash.com/photo-1490750967868-88aa4f44baee?w=700&q=80',
+                'https://images.unsplash.com/photo-1490735891913-40897cdaafd1?w=700&q=80'
+            ],
+            accent: 'https://images.unsplash.com/photo-1457269449834-928af64c7dd4?w=1200&q=80',
+            caption: 'Your palette mirrors the luminous energy of nature in bloom'
+        }
     },
     summer: {
         title: 'Summer',
@@ -846,7 +991,16 @@ const seasonData = {
         clothing: 'Soft, muted, and blended\u2014that is your fashion philosophy. Dusty pastels, blue-greys, and soft berry tones are your signatures. Navy and charcoal blue replace black. Rose and mauve replace red. Everything should look slightly watercolour-washed.',
         makeup: 'Rose-toned blush, berry lips, and cool-toned eyeshadows in mauves, soft greys, and plums. Silver-pink highlighter over gold. Your look is soft focus\u2014nothing too stark or contrasty.',
         hair: 'Ash blonde, cool brown, and soft platinum tones harmonise with your colouring. Subtle cool highlights work beautifully. Avoid brassy, warm, or overly golden tones.',
-        celebs: ['Cate Blanchett', 'Emily Blunt', 'Naomi Watts', 'Elle Fanning', 'Dakota Johnson', 'Rosie Huntington-Whiteley']
+        celebs: ['Cate Blanchett', 'Emily Blunt', 'Naomi Watts', 'Elle Fanning', 'Dakota Johnson', 'Rosie Huntington-Whiteley'],
+        photos: {
+            hero: 'https://images.unsplash.com/photo-1499002238440-d264edd596ec?w=1400&q=80',
+            editorial: [
+                'https://images.unsplash.com/photo-1473496169904-658ba7c44d8a?w=700&q=80',
+                'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=700&q=80'
+            ],
+            accent: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=80',
+            caption: 'Your palette echoes the soft, hazy elegance of a midsummer coast'
+        }
     },
     autumn: {
         title: 'Autumn',
@@ -870,7 +1024,16 @@ const seasonData = {
         clothing: 'Think warmth and texture. Corduroy in rust, cashmere in camel, leather in chocolate. Your wardrobe should feel collected, layered, and rich. Olive and burgundy are your power colours. Cream replaces white; dark chocolate replaces black.',
         makeup: 'Bronze, copper, and terracotta are your essentials. Warm brown eyeshadows, a brick or spice lip, and a sun-kissed bronzer. Think warmth in every layer\u2014skip anything pink, frosty, or silver-toned.',
         hair: 'Rich auburn, chestnut, copper, and warm chocolate tones are magnificent on you. Warm caramel highlights add dimension. Avoid cool, ashy tones or platinum\u2014they fight your warmth.',
-        celebs: ['Beyonc\u00e9', 'Julia Roberts', 'Jessica Alba', 'Eva Mendes', 'Julianne Moore', 'Jennifer Lopez']
+        celebs: ['Beyonc\u00e9', 'Julia Roberts', 'Jessica Alba', 'Eva Mendes', 'Julianne Moore', 'Jennifer Lopez'],
+        photos: {
+            hero: 'https://images.unsplash.com/photo-1508193638397-1c4234db14d8?w=1400&q=80',
+            editorial: [
+                'https://images.unsplash.com/photo-1541753866388-0b3c701627d3?w=700&q=80',
+                'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=700&q=80'
+            ],
+            accent: 'https://images.unsplash.com/photo-1476820865390-c52aeebb9891?w=1200&q=80',
+            caption: 'Your palette draws from the smouldering warmth of an October woodland'
+        }
     },
     winter: {
         title: 'Winter',
@@ -894,7 +1057,16 @@ const seasonData = {
         clothing: 'You are one of the few who can truly wear black\u2014own it. But also explore jewel tones: sapphire, emerald, ruby, and amethyst. Stark white, not cream. Silver, not gold. Your fashion should have clarity and impact\u2014no murky, muted, or washed-out tones.',
         makeup: 'Bold, clear lip colours\u2014true red, plum, berry, or fuchsia. Cool-toned eyeshadows in charcoal, navy, or silver. A porcelain or cool-toned foundation. You can carry drama: a red lip, a smoky eye, or both.',
         hair: 'Rich, cool tones\u2014blue-black, cool espresso, icy platinum, or cool burgundy. High contrast works beautifully on you. Avoid warm or brassy highlights that soften your natural drama.',
-        celebs: ['Lupita Nyong\u2019o', 'Anne Hathaway', 'Zendaya', 'Dita Von Teese', 'Lily Collins', 'Amal Clooney']
+        celebs: ['Lupita Nyong\u2019o', 'Anne Hathaway', 'Zendaya', 'Dita Von Teese', 'Lily Collins', 'Amal Clooney'],
+        photos: {
+            hero: 'https://images.unsplash.com/photo-1491002052546-bf38f186af56?w=1400&q=80',
+            editorial: [
+                'https://images.unsplash.com/photo-1418985991508-e47386d96a71?w=700&q=80',
+                'https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?w=700&q=80'
+            ],
+            accent: 'https://images.unsplash.com/photo-1477601263568-180e2c6d046e?w=1200&q=80',
+            caption: 'Your palette channels the crystalline drama of a frost-covered landscape'
+        }
     }
 };
 
@@ -1024,6 +1196,11 @@ function showResults() {
 
     const results = document.getElementById('results');
     results.innerHTML = `
+        <div class="result-hero-image">
+            <img src="${data.photos.hero}" alt="${data.title} nature landscape">
+            <div class="image-overlay"></div>
+        </div>
+
         <div class="result-hero" style="background: var(--off-white)">
             <div class="reveal-label">Your season is</div>
             <h1 class="season-title">${data.title}</h1>
@@ -1042,6 +1219,12 @@ function showResults() {
                 <div class="palette-detail">${paletteDetail}</div>
             </div>
 
+            <div class="photo-break">
+                <img src="${data.photos.editorial[0]}" alt="${data.title} inspiration">
+                <img src="${data.photos.editorial[1]}" alt="${data.title} inspiration">
+            </div>
+            <p class="photo-caption">${data.photos.caption}</p>
+
             <div class="detail-section">
                 <div class="detail-section-label">Fashion</div>
                 <h3>Your Wardrobe Blueprint</h3>
@@ -1052,6 +1235,10 @@ function showResults() {
                 <div class="detail-section-label">Beauty</div>
                 <h3>Makeup That Elevates</h3>
                 <p>${data.makeup}</p>
+            </div>
+
+            <div class="photo-break single">
+                <img src="${data.photos.accent}" alt="${data.title} colour inspiration">
             </div>
 
             <div class="detail-section">
