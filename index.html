@@ -550,6 +550,65 @@
             color: var(--dark-gray);
         }
 
+        /* SAVE PALETTE CARD */
+        .save-palette-wrapper {
+            text-align: center;
+            margin-top: 48px;
+        }
+
+        .save-palette-btn {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 14px 36px;
+            border: 1px solid var(--black);
+            background: transparent;
+            color: var(--black);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .save-palette-btn:hover {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .palette-card-preview {
+            margin-top: 32px;
+            display: none;
+        }
+
+        .palette-card-preview.visible {
+            display: block;
+            animation: fadeUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .palette-card-preview canvas {
+            max-width: 100%;
+            border: 1px solid var(--warm-gray);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        }
+
+        .download-btn {
+            display: inline-block;
+            margin-top: 16px;
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 12px 32px;
+            background: var(--black);
+            color: var(--white);
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background: var(--dark-gray);
+        }
+
         /* CELEBRITY GRID */
         .celeb-list {
             display: flex;
@@ -1217,6 +1276,14 @@ function showResults() {
                 <h3>The Colours That Were Made for You</h3>
                 <p>These are the shades that will make your skin glow, your eyes sparkle, and your overall appearance look effortlessly polished.</p>
                 <div class="palette-detail">${paletteDetail}</div>
+                <div class="save-palette-wrapper">
+                    <button class="save-palette-btn" onclick="generatePaletteCard()">Save Your Palette Card</button>
+                    <div class="palette-card-preview" id="paletteCardPreview">
+                        <canvas id="paletteCanvas" width="800" height="480"></canvas>
+                        <br>
+                        <a class="download-btn" id="downloadCardBtn">Download Image</a>
+                    </div>
+                </div>
             </div>
 
             <div class="photo-break">
@@ -1268,6 +1335,71 @@ function showResults() {
 
     results.classList.add('active');
     window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function generatePaletteCard() {
+    const season = calculateSeason();
+    const data = seasonData[season];
+    const canvas = document.getElementById('paletteCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // Clear canvas
+    ctx.fillStyle = '#f8f6f3';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Draw header text
+    ctx.fillStyle = '#1a1a1a';
+    ctx.font = '12px Inter, sans-serif';
+    ctx.letterSpacing = '3px';
+    ctx.textAlign = 'center';
+    ctx.fillText('YOUR COLOUR SEASON', canvas.width / 2, 48);
+
+    ctx.font = '52px Playfair Display, serif';
+    ctx.fillText(data.title, canvas.width / 2, 110);
+
+    ctx.font = 'italic 20px Cormorant Garamond, serif';
+    ctx.fillStyle = '#4a4745';
+    ctx.fillText(data.subtitle, canvas.width / 2, 148);
+
+    // Draw palette swatches
+    const swatchSize = 56;
+    const gap = 12;
+    const colors = data.pallete.map(p => p.color);
+    const totalWidth = colors.length * swatchSize + (colors.length - 1) * gap;
+    const startX = (canvas.width - totalWidth) / 2;
+    const swatchY = 190;
+
+    colors.forEach((color, i) => {
+        ctx.fillStyle = color;
+        ctx.beginPath();
+        ctx.arc(startX + i * (swatchSize + gap) + swatchSize / 2, swatchY + swatchSize / 2, swatchSize / 2, 0, Math.PI * 2);
+        ctx.fill();
+    });
+
+    // Draw color names
+    ctx.font = '10px Inter, sans-serif';
+    ctx.fillStyle = '#4a4745';
+    data.palette.forEach((p, i) => {
+        ctx.fillText(p.name, startX + i * (swatchSize + gap) + swatchSize / 2, swatchY + swatchSize + 18);
+    });
+
+    // Draw footer
+    ctx.font = 'italic 14px Cormorant Garamond, serif';
+    ctx.fillStyle = '#9a9590';
+    ctx.fillText('Colour Analysis', canvas.width / 2, canvas.height - 30);
+
+    // Show preview
+    const preview = document.getElementById('paletteCardPreview');
+    preview.classList.add('visible');
+
+    // Set up download
+    const downloadBtn = document.getElementById('downloadCardBtn');
+    downloadBtn.addEventListener('click', function() {
+        const link = document.createElement('a');
+        link.download = `my-${season}-palette.png`;
+        link.href = canvas.toDataURL('image/png');
+        link.click();
+    });
 }
 
 function retakeQuiz() {
