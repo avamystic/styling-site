@@ -369,7 +369,27 @@ button {
 }
 
 .about__inner {
-  max-width: 720px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-6);
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .about__inner {
+    grid-template-columns: 5fr 7fr;
+    gap: var(--sp-7);
+  }
+}
+
+.about__portrait {
+  width: 100%;
+  border-radius: 999px 999px 0 0;
+  object-fit: cover;
+}
+
+.about__content {
+  max-width: 600px;
 }
 
 .about .eyebrow {
