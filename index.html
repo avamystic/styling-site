@@ -4,19 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Ava Sharbaf — Identity Stylist, NYC</title>
-  <meta name="description" content="Ava Sharbaf is a New York–based identity stylist with 20+ years of experience helping established professionals dress for who they're becoming.">
-  <meta name="author" content="Ava Sharbaf">
+  <title>Style with Ava — Identity Stylist, NYC</title>
+  <meta name="description" content="Style with Ava is a New York–based identity styling practice with 20+ years of experience helping established professionals dress for who they're becoming.">
+  <meta name="author" content="Style with Ava">
 
-  <meta property="og:title"       content="Ava Sharbaf — Identity Stylist">
+  <meta property="og:title"       content="Style with Ava — Identity Stylist">
   <meta property="og:description" content="Identity-first styling for professionals in transition. Style is a tool, not a costume.">
   <meta property="og:image"       content="/images/optimized/hero.jpg">
   <meta property="og:url"         content="https://avasharbaf.com">
   <meta property="og:type"        content="website">
-  <meta property="og:site_name"   content="Ava Sharbaf">
+  <meta property="og:site_name"   content="Style with Ava">
 
   <meta name="twitter:card"        content="summary_large_image">
-  <meta name="twitter:title"       content="Ava Sharbaf — Identity Stylist">
+  <meta name="twitter:title"       content="Style with Ava — Identity Stylist">
   <meta name="twitter:description" content="Identity-first styling for professionals in transition.">
   <meta name="twitter:image"       content="/images/optimized/hero.jpg">
 
@@ -34,9 +34,17 @@
   <!-- NAV -->
   <nav class="nav" id="nav" aria-label="Main navigation">
     <div class="nav__inner">
-      <a href="#home" class="nav__wordmark" aria-label="Ava Sharbaf — Home">
-        AVA<span class="nav__slash">/</span>SHARBAF
+      <a href="#home" class="nav__wordmark" aria-label="Style with Ava — Home">
+        STYLE WITH AVA
       </a>
+
+      <ul class="nav__menu" id="navMenu" role="list">
+        <li><a href="#about"    class="nav__link">About</a></li>
+        <li><a href="#services" class="nav__link">Services</a></li>
+        <li><a href="#contact"  class="nav__link">Contact</a></li>
+      </ul>
+
+      <a href="#contact" class="btn btn--primary nav__cta">Apply to work together</a>
 
       <button
         class="nav__toggle"
@@ -44,79 +52,53 @@
         aria-expanded="false"
         aria-controls="navMenu"
         aria-label="Toggle menu"
-      >
-        <span></span><span></span><span></span>
-      </button>
-
-      <ul class="nav__menu" id="navMenu" role="list">
-        <li><a href="#about"    class="nav__link">About</a></li>
-        <li><a href="#services" class="nav__link">Services</a></li>
-        <li><a href="#contact"  class="nav__link">Contact</a></li>
-      </ul>
+      ><span></span><span></span><span></span></button>
     </div>
   </nav>
 
   <main>
 
-    <!-- HOME -->
+    <!-- HERO — full-bleed with burgundy overlay -->
     <!--
       TAGLINE OPTIONS:
         1. "Your outside should tell the story your inside already knows."
         2. "Dress for who you're becoming, not who you've been."
         3. "Style is a tool for transition. Not a costume for performance."
-      USING: Option 1 — direct, emotional, client-facing.
+      USING: Option 1.
     -->
     <section id="home" class="hero" aria-labelledby="hero-name">
-      <div class="hero__text">
-        <p class="eyebrow" style="opacity:0;animation:fadeUp .7s cubic-bezier(.25,.46,.45,.94) .1s forwards">
+      <div class="hero__bg" aria-hidden="true">
+        <img
+          src="/images/optimized/hero.jpg"
+          alt=""
+          class="hero__bg-img"
+          fetchpriority="high"
+          decoding="async"
+        >
+        <div class="hero__overlay"></div>
+      </div>
+
+      <div class="hero__content container">
+        <p class="hero__eyebrow" style="opacity:0;animation:fadeUp .7s cubic-bezier(.25,.46,.45,.94) .1s forwards">
           Identity Stylist &middot; New York City
         </p>
         <h1 class="hero__headline" id="hero-name" style="opacity:0;animation:fadeUp .8s cubic-bezier(.25,.46,.45,.94) .25s forwards">
-          Ava<br>Sharbaf
+          Style<br>with Ava
         </h1>
         <p class="hero__tagline" style="opacity:0;animation:fadeUp .8s cubic-bezier(.25,.46,.45,.94) .45s forwards">
           Your outside should tell the story your inside already knows.
         </p>
-        <div class="hero__ctas" style="opacity:0;animation:fadeUp .8s cubic-bezier(.25,.46,.45,.94) .6s forwards">
+        <div class="hero__cta-wrap" style="opacity:0;animation:fadeUp .8s cubic-bezier(.25,.46,.45,.94) .6s forwards">
           <a href="#contact" class="btn btn--primary">Apply to work together</a>
-          <a href="https://calendly.com/avachannel/15min" class="btn btn--ghost" target="_blank" rel="noopener noreferrer">Book a 15-min call</a>
+          <p class="hero__note">[I work with a limited number of clients each season.]</p>
         </div>
-      </div>
-
-      <!-- Hero photograph in a deep "film frame" band -->
-      <div class="hero__frame" aria-hidden="true">
-        <img
-          src="/images/optimized/hero.jpg"
-          alt=""
-          class="hero__img"
-          fetchpriority="high"
-          decoding="async"
-        >
       </div>
     </section>
 
-    <!-- ABOUT -->
+    <!-- ABOUT — text-only, mahogany -->
     <section id="about" class="about" aria-labelledby="about-heading">
-      <div class="about__inner container">
-
-        <div class="about__media fade-up">
-          <img
-            src="/images/optimized/about.jpg"
-            alt="Ava Sharbaf, identity stylist"
-            class="about__portrait"
-            loading="lazy"
-            decoding="async"
-          >
-          <img
-            src="/images/optimized/detail-1.jpg"
-            alt="Styling detail"
-            class="about__detail"
-            loading="lazy"
-            decoding="async"
-          >
-        </div>
-
-        <div class="about__content fade-up">
+      <div class="container">
+        <div class="about__inner fade-up">
           <p class="eyebrow">About</p>
           <h2 class="about__heading" id="about-heading">
             Style is the translation.<br>Identity is the original.
@@ -138,10 +120,11 @@
               longer matches their inside. People in transition: a new role, a new chapter, a new
               sense of self.
             </p>
-            <p>I don't tell you what to wear. Through my process, you tell me.</p>
           </div>
+          <blockquote class="about__pullquote">
+            I don't tell people what to wear. They tell me, through my process.
+          </blockquote>
         </div>
-
       </div>
     </section>
 
@@ -161,98 +144,79 @@
 
         <div>
           <ul class="services__list" role="list">
-
             <li class="services__item fade-up">
               <span class="services__num" aria-hidden="true">01</span>
               <div>
                 <h3 class="services__name">Style Consultation</h3>
-                <p class="services__desc">
-                  Where we begin: a deep look at who you are now and who you're becoming,
-                  mapped onto how you dress.
-                </p>
+                <p class="services__desc">Where we begin: a deep look at who you are now and who you're becoming, mapped onto how you dress.</p>
               </div>
             </li>
-
             <li class="services__item fade-up">
               <span class="services__num" aria-hidden="true">02</span>
               <div>
                 <h3 class="services__name">Wardrobe Consultation &amp; Upgrade</h3>
-                <p class="services__desc">
-                  Your existing wardrobe, ruthlessly edited and intelligently built upon.
-                </p>
+                <p class="services__desc">Your existing wardrobe, ruthlessly edited and intelligently built upon.</p>
               </div>
             </li>
-
             <li class="services__item fade-up">
               <span class="services__num" aria-hidden="true">03</span>
               <div>
                 <h3 class="services__name">Personal Shopping</h3>
-                <p class="services__desc">
-                  I shop with intention, not impulse—finding pieces that carry real weight
-                  in your wardrobe.
-                </p>
+                <p class="services__desc">I shop with intention, not impulse—finding pieces that carry real weight in your wardrobe.</p>
               </div>
             </li>
-
             <li class="services__item fade-up">
               <span class="services__num" aria-hidden="true">04</span>
               <div>
                 <h3 class="services__name">Seasonal Refresh</h3>
-                <p class="services__desc">
-                  Each season, we revisit what's working, what's worn out, and what belongs next.
-                </p>
+                <p class="services__desc">Each season, we revisit what's working, what's worn out, and what belongs next.</p>
               </div>
             </li>
-
             <li class="services__item fade-up">
               <span class="services__num" aria-hidden="true">05</span>
               <div>
                 <h3 class="services__name">Wardrobe Base</h3>
-                <p class="services__desc">
-                  The foundation: key pieces that anchor everything else you own and make
-                  every morning easier.
-                </p>
+                <p class="services__desc">The foundation: key pieces that anchor everything else you own and make every morning easier.</p>
               </div>
             </li>
-
             <li class="services__item fade-up">
               <span class="services__num" aria-hidden="true">06</span>
               <div>
                 <h3 class="services__name">Full Wardrobe</h3>
-                <p class="services__desc">
-                  A complete overhaul, from closet audit to final styling—done together,
-                  start to finish.
-                </p>
+                <p class="services__desc">A complete overhaul, from closet audit to final styling—done together, start to finish.</p>
               </div>
             </li>
-
             <li class="services__item fade-up">
               <span class="services__num" aria-hidden="true">07</span>
               <div>
                 <h3 class="services__name">Monthly Retainer</h3>
-                <p class="services__desc">
-                  Ongoing access to my eye, my instincts, and my process—as your life
-                  and wardrobe continue to evolve.
-                </p>
+                <p class="services__desc">Ongoing access to my eye, my instincts, and my process—as your life and wardrobe continue to evolve.</p>
               </div>
             </li>
-
             <li class="services__item fade-up">
               <span class="services__num" aria-hidden="true">08</span>
               <div>
                 <h3 class="services__name">Closet Edits</h3>
-                <p class="services__desc">
-                  Fast, decisive, transformative. We go through everything—and you leave
-                  knowing exactly what you have.
-                </p>
+                <p class="services__desc">Fast, decisive, transformative. We go through everything—and you leave knowing exactly what you have.</p>
               </div>
             </li>
-
           </ul>
         </div>
 
       </div>
     </section>
+
+    <!-- IMAGE BAND — Flatiron, full-width, between Services and Contact -->
+    <div class="image-band" aria-hidden="true">
+      <img
+        src="/images/optimized/detail-1.jpg"
+        alt=""
+        class="image-band__img"
+        loading="lazy"
+        decoding="async"
+      >
+      <div class="image-band__overlay"></div>
+    </div>
 
     <!-- CONTACT -->
     <section id="contact" class="contact" aria-labelledby="contact-heading">
@@ -266,47 +230,88 @@
           </div>
 
           <form class="contact__form fade-up" id="contactForm" novalidate aria-label="Application form">
-            <!-- Honeypot: invisible to real users -->
+            <!-- Honeypot -->
             <div class="contact__honeypot" aria-hidden="true">
               <label for="website">Website</label>
               <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
             </div>
 
-            <div class="form-field">
-              <label class="form-label" for="name">Name <span aria-hidden="true">*</span></label>
-              <input class="form-input" type="text" id="name" name="name"
-                required autocomplete="name" aria-required="true" aria-describedby="name-error">
-              <span class="form-error" id="name-error" role="alert" aria-live="polite"></span>
+            <div class="form-row">
+              <div class="form-field">
+                <label class="form-label" for="name">Name <span aria-hidden="true">*</span></label>
+                <input class="form-input" type="text" id="name" name="name"
+                  required autocomplete="name" aria-required="true" aria-describedby="name-error">
+                <span class="form-error" id="name-error" role="alert" aria-live="polite"></span>
+              </div>
+
+              <div class="form-field">
+                <label class="form-label" for="email">Email <span aria-hidden="true">*</span></label>
+                <input class="form-input" type="email" id="email" name="email"
+                  required autocomplete="email" aria-required="true" aria-describedby="email-error">
+                <span class="form-error" id="email-error" role="alert" aria-live="polite"></span>
+              </div>
             </div>
 
             <div class="form-field">
-              <label class="form-label" for="email">Email <span aria-hidden="true">*</span></label>
-              <input class="form-input" type="email" id="email" name="email"
-                required autocomplete="email" aria-required="true" aria-describedby="email-error">
-              <span class="form-error" id="email-error" role="alert" aria-live="polite"></span>
+              <label class="form-label" for="brings">What brings you here now? <span aria-hidden="true">*</span></label>
+              <textarea class="form-input form-textarea" id="brings" name="brings"
+                required rows="4" aria-required="true" aria-describedby="brings-error"></textarea>
+              <span class="form-error" id="brings-error" role="alert" aria-live="polite"></span>
             </div>
 
             <div class="form-field">
-              <label class="form-label" for="message">Message <span aria-hidden="true">*</span></label>
-              <textarea class="form-input form-textarea" id="message" name="message"
-                required rows="6" aria-required="true" aria-describedby="message-error"
-                placeholder="Tell me about yourself—where you are now, what's shifting, what you're hoping for."></textarea>
-              <span class="form-error" id="message-error" role="alert" aria-live="polite"></span>
+              <label class="form-label" for="change">What are you hoping to change or feel? <span aria-hidden="true">*</span></label>
+              <textarea class="form-input form-textarea" id="change" name="change"
+                required rows="4" aria-required="true" aria-describedby="change-error"></textarea>
+              <span class="form-error" id="change-error" role="alert" aria-live="polite"></span>
             </div>
 
-            <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+            <div class="form-row">
+              <div class="form-field">
+                <label class="form-label" for="service">Which service interests you?</label>
+                <div class="form-select-wrap">
+                  <select class="form-input form-select" id="service" name="service">
+                    <option value="">Not sure yet</option>
+                    <option value="Style Consultation">Style Consultation</option>
+                    <option value="Wardrobe Consultation & Upgrade">Wardrobe Consultation &amp; Upgrade</option>
+                    <option value="Personal Shopping">Personal Shopping</option>
+                    <option value="Seasonal Refresh">Seasonal Refresh</option>
+                    <option value="Wardrobe Base">Wardrobe Base</option>
+                    <option value="Full Wardrobe">Full Wardrobe</option>
+                    <option value="Monthly Retainer">Monthly Retainer</option>
+                    <option value="Closet Edits">Closet Edits</option>
+                  </select>
+                  <span class="form-select-arrow" aria-hidden="true"></span>
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label class="form-label" for="investment">Investment range</label>
+                <div class="form-select-wrap">
+                  <select class="form-input form-select" id="investment" name="investment">
+                    <option value="">Select a range</option>
+                    <option value="$1,500+">$1,500+</option>
+                    <option value="$2,500+">$2,500+</option>
+                    <option value="$5,000+">$5,000+</option>
+                    <option value="$10,000+">$10,000+</option>
+                    <option value="Let's discuss">Let's discuss</option>
+                  </select>
+                  <span class="form-select-arrow" aria-hidden="true"></span>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-field">
+              <label class="form-label" for="timeline">Timeline or upcoming event <span class="form-optional">(optional)</span></label>
+              <input class="form-input" type="text" id="timeline" name="timeline"
+                placeholder="e.g. New role starting March, anniversary trip in June">
+            </div>
 
             <button type="submit" class="btn btn--primary form-submit" id="submitBtn">
               <span class="btn-text">Send</span>
               <span class="btn-loading" aria-hidden="true">Sending&hellip;</span>
             </button>
           </form>
-
-          <div class="contact__alt fade-up">
-            <p class="contact__alt-text">Prefer to talk first?</p>
-            <a href="https://calendly.com/avachannel/15min" class="btn btn--ghost"
-               target="_blank" rel="noopener noreferrer">Book a 15-min call</a>
-          </div>
 
         </div>
       </div>
@@ -318,19 +323,12 @@
   <footer class="footer" role="contentinfo">
     <div class="container footer__inner">
       <div>
-        <p class="footer__wordmark">AVA<span class="footer__slash">/</span>SHARBAF</p>
+        <p class="footer__wordmark">STYLE WITH AVA</p>
         <p class="footer__location">New York City</p>
       </div>
-      <p class="footer__copy">&copy; 2026 Ava Sharbaf. All rights reserved.</p>
+      <p class="footer__copy">&copy; 2026 Style with Ava. All rights reserved.</p>
       <nav class="footer__social" aria-label="Social links">
-        <!-- TODO: replace # with real URLs -->
-        <a href="#" class="footer__social-link" aria-label="Instagram" rel="noopener">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
-            <rect x="2" y="2" width="20" height="20" rx="5"/>
-            <circle cx="12" cy="12" r="4"/>
-            <circle cx="17.5" cy="6.5" r=".75" fill="currentColor" stroke="none"/>
-          </svg>
-        </a>
+        <!-- TODO: replace # with your LinkedIn URL -->
         <a href="#" class="footer__social-link" aria-label="LinkedIn" rel="noopener">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <rect x="2" y="2" width="20" height="20" rx="3"/>

@@ -44,8 +44,7 @@ const fadeObserver = new IntersectionObserver(
   { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }
 );
 
-document.querySelectorAll('.fade-up').forEach((el, i) => {
-  // Stagger sibling items naturally
+document.querySelectorAll('.fade-up').forEach(el => {
   const siblings = el.parentElement?.querySelectorAll('.fade-up');
   if (siblings && siblings.length > 1) {
     const idx = Array.from(siblings).indexOf(el);
@@ -57,12 +56,12 @@ document.querySelectorAll('.fade-up').forEach((el, i) => {
 /* ============================================
    CONTACT FORM
    ============================================ */
-const form       = document.getElementById('contactForm');
-const submitBtn  = document.getElementById('submitBtn');
-const formStatus = document.getElementById('formStatus');
+const form      = document.getElementById('contactForm');
+const submitBtn = document.getElementById('submitBtn');
 
 if (form) {
-  // Per-field validation
+  const REQUIRED_IDS = ['name', 'email', 'brings', 'change'];
+
   function validate(input) {
     const errorEl = document.getElementById(`${input.id}-error`);
     if (!errorEl) return true;
@@ -83,7 +82,7 @@ if (form) {
     return !msg;
   }
 
-  ['name', 'email', 'message'].forEach(id => {
+  REQUIRED_IDS.forEach(id => {
     const el = document.getElementById(id);
     if (!el) return;
     el.addEventListener('blur', () => validate(el));
@@ -95,13 +94,11 @@ if (form) {
   form.addEventListener('submit', async e => {
     e.preventDefault();
 
-    // Honeypot check
-    const honeypot = form.querySelector('[name="website"]');
-    if (honeypot?.value) return;
+    // Honeypot
+    if (form.querySelector('[name="website"]')?.value) return;
 
-    // Validate
-    const ids = ['name', 'email', 'message'];
-    const allValid = ids.every(id => validate(document.getElementById(id)));
+    // Validate required fields
+    const allValid = REQUIRED_IDS.every(id => validate(document.getElementById(id)));
     if (!allValid) {
       form.querySelector('.has-error')?.focus();
       return;
@@ -110,42 +107,63 @@ if (form) {
     // Loading state
     submitBtn.classList.add('is-loading');
     submitBtn.disabled = true;
-    formStatus.className = 'form-status';
-    formStatus.textContent = '';
+
+    const getValue = id => document.getElementById(id)?.value.trim() ?? '';
 
     const payload = {
-      name:    document.getElementById('name').value.trim(),
-      email:   document.getElementById('email').value.trim(),
-      message: document.getElementById('message').value.trim(),
+      name:       getValue('name'),
+      email:      getValue('email'),
+      brings:     getValue('brings'),
+      change:     getValue('change'),
+      service:    getValue('service'),
+      investment: getValue('investment'),
+      timeline:   getValue('timeline'),
     };
 
     try {
       const res = await fetch('https://formspree.io/f/mbgdqypn', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
-        body: JSON.stringify(payload),
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body:    JSON.stringify(payload),
       });
 
       if (res.ok) {
-        formStatus.textContent = 'Thank you — your message was sent. I’ll be in touch soon.';
-        formStatus.classList.add('is-success');
-        form.reset();
-        ids.forEach(id => {
-          const el = document.getElementById(id);
-          if (el) { el.classList.remove('has-error'); el.removeAttribute('aria-invalid'); }
+        // Replace form with success state
+        form.style.display = 'none';
+
+        const successEl = document.createElement('div');
+        successEl.className = 'form-success fade-up';
+        successEl.innerHTML = `
+          <p class="form-success__message">Thank you. The next step is a 15-minute consultation.</p>
+          <a
+            href="https://calendly.com/avachannel/15min"
+            class="btn btn--primary"
+            target="_blank"
+            rel="noopener noreferrer"
+          >Book your consultation</a>
+        `;
+        form.after(successEl);
+
+        // Trigger fade-in
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => successEl.classList.add('is-visible'));
         });
-        formStatus.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+        successEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       } else {
         const json = await res.json().catch(() => ({}));
-        throw new Error(json?.errors?.[0]?.message || `Server error ${res.status}`);
+        throw new Error(json?.errors?.[0]?.message || `Error ${res.status}`);
       }
     } catch (err) {
-      formStatus.textContent = `Something went wrong — please try again, or email me directly. (${err.message})`;
-      formStatus.classList.add('is-error');
-    } finally {
+      // Show error inline below the submit button
+      let errEl = form.querySelector('.form-submit-error');
+      if (!errEl) {
+        errEl = document.createElement('p');
+        errEl.className = 'form-error form-submit-error';
+        submitBtn.after(errEl);
+      }
+      errEl.textContent = `Something went wrong — please try again. (${err.message})`;
+
       submitBtn.classList.remove('is-loading');
       submitBtn.disabled = false;
     }
