@@ -942,3 +942,284 @@ button {
 }
 
 .footer__social-link:hover { color: var(--on-deep); }
+
+.footer__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+}
+
+.footer__text-link {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--on-deep-muted);
+  transition: color 0.2s;
+}
+
+.footer__text-link:hover { color: var(--on-deep); }
+
+/* ============================================================
+   ANNOUNCEMENT BAR
+   ============================================================ */
+:root {
+  --bar-h: 40px;
+}
+
+.announcement-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--bar-h);
+  background-color: var(--deep);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+}
+
+.announcement-bar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 100%;
+}
+
+.announcement-bar__link {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--on-deep-muted);
+  text-align: center;
+  transition: color 0.2s;
+}
+
+.announcement-bar__link:hover { color: var(--on-deep); }
+
+.announcement-bar__close {
+  position: absolute;
+  right: var(--sp-4);
+  color: var(--on-deep-muted);
+  padding: var(--sp-2);
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+
+.announcement-bar__close:hover { color: var(--on-deep); }
+
+/* When bar is active, shift nav and hero */
+body.has-announcement .nav {
+  top: var(--bar-h);
+  transition: top 0.2s ease, background-color 0.3s, border-bottom 0.3s;
+}
+
+body.has-announcement .hero__content {
+  padding-top: calc(var(--bar-h) + var(--nav-height) + var(--sp-5));
+}
+
+/* ============================================================
+   PROCESS
+   ============================================================ */
+.process {
+  background-color: var(--surface-alt);
+  padding: var(--sp-7) 0;
+}
+
+.process__header {
+  margin-bottom: var(--sp-6);
+  max-width: 640px;
+}
+
+.process__heading {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 52px);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: var(--sp-4);
+  margin-top: var(--sp-3);
+}
+
+.process__intro {
+  font-size: clamp(15px, 1.5vw, 17px);
+  line-height: 1.7;
+  color: var(--ink-muted);
+}
+
+.process__steps {
+  border-top: 1px solid var(--line);
+}
+
+.process__phase-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding: var(--sp-5) 0 var(--sp-3);
+}
+
+.process__step {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-3);
+  padding: var(--sp-4) 0;
+  border-bottom: 1px solid var(--line);
+}
+
+@media (min-width: 768px) {
+  .process__step {
+    grid-template-columns: 5fr 7fr;
+    gap: var(--sp-6);
+    align-items: start;
+    padding: var(--sp-5) 0;
+  }
+}
+
+.process__step-left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.process__step-num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.05em;
+  color: var(--ink-muted);
+}
+
+.process__step-name {
+  font-family: var(--font-display);
+  font-size: clamp(22px, 3vw, 34px);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+}
+
+.process__step-desc {
+  font-size: clamp(15px, 1.5vw, 17px);
+  line-height: 1.7;
+  color: var(--ink-muted);
+}
+
+@media (min-width: 768px) {
+  .process__step-desc { padding-top: var(--sp-5); }
+}
+
+/* ============================================================
+   SERVICES — White Glove Retainer
+   ============================================================ */
+.services__white-glove {
+  border-top: 1px solid var(--line);
+  padding: var(--sp-5) 0;
+  margin-bottom: var(--sp-5);
+}
+
+.services__white-glove-inner {
+  display: flex;
+  gap: var(--sp-6);
+  align-items: start;
+  max-width: 640px;
+}
+
+.services__white-glove-name {
+  font-family: var(--font-display);
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 1.2;
+  color: var(--ink-muted);
+  margin-bottom: var(--sp-2);
+  font-style: italic;
+}
+
+.services__white-glove-desc {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--ink-muted);
+}
+
+/* ============================================================
+   ABOUT — facts list
+   ============================================================ */
+.about__facts {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  margin-top: var(--sp-5);
+  padding-top: var(--sp-4);
+  border-top: 1px solid rgba(243, 230, 216, 0.25);
+}
+
+.about__facts li {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--on-mahogany-muted);
+}
+
+/* ============================================================
+   JOURNAL STRIP
+   ============================================================ */
+.journal {
+  background-color: var(--surface);
+  padding: var(--sp-7) 0;
+  border-top: 1px solid var(--line);
+}
+
+.journal .eyebrow {
+  margin-bottom: var(--sp-5);
+}
+
+.journal__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sp-5);
+  border-top: 1px solid var(--line);
+}
+
+@media (min-width: 640px) {
+  .journal__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-6);
+  }
+}
+
+.journal__card {
+  display: block;
+  padding-top: var(--sp-5);
+  border-top: 1px solid var(--line);
+  transition: opacity 0.2s;
+}
+
+@media (min-width: 640px) {
+  .journal__card { border-top: none; padding-top: 0; }
+}
+
+.journal__card:hover { opacity: 0.72; }
+
+.journal__date {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--ink-muted);
+  margin-bottom: var(--sp-3);
+}
+
+.journal__title {
+  font-family: var(--font-display);
+  font-size: clamp(17px, 2vw, 22px);
+  line-height: 1.25;
+  color: var(--ink);
+  margin-bottom: var(--sp-3);
+}
+
+.journal__excerpt {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--ink-muted);
+}

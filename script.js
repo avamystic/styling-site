@@ -1,4 +1,13 @@
 /* ============================================
+   ANNOUNCEMENT BAR
+   Text and link are set here; set to null to disable entirely.
+   ============================================ */
+const ANNOUNCEMENT = {
+  text: 'The Fall Update: limited spots through 10/31. Learn more.',
+  href: '/fall-update',
+};
+
+/* ============================================
    TESTIMONIALS
    ============================================
 
@@ -155,6 +164,38 @@ const TESTIMONIALS = [
 })();
 
 /* ============================================
+   ANNOUNCEMENT BAR INIT
+   ============================================ */
+(function initAnnouncementBar() {
+  const bar  = document.getElementById('announcementBar');
+  const link = document.getElementById('announcementLink');
+  if (!bar || !link) return;
+
+  if (!ANNOUNCEMENT) {
+    bar.hidden = true;
+    return;
+  }
+
+  link.textContent = ANNOUNCEMENT.text;
+  link.href        = ANNOUNCEMENT.href;
+
+  if (sessionStorage.getItem('announcementDismissed')) {
+    bar.hidden = true;
+    return;
+  }
+
+  document.body.classList.add('has-announcement');
+
+  document.getElementById('announcementClose')?.addEventListener('click', () => {
+    document.body.classList.remove('has-announcement');
+    bar.style.transition = 'opacity 0.2s ease';
+    bar.style.opacity    = '0';
+    setTimeout(() => { bar.hidden = true; }, 210);
+    sessionStorage.setItem('announcementDismissed', '1');
+  });
+})();
+
+/* ============================================
    NAVIGATION
    ============================================ */
 const nav       = document.getElementById('nav');
@@ -208,6 +249,60 @@ document.querySelectorAll('.fade-up').forEach(el => {
   }
   fadeObserver.observe(el);
 });
+
+/* ============================================
+   JOURNAL STRIP
+   ============================================ */
+(async function initJournal() {
+  const section = document.getElementById('journal');
+  const grid    = document.getElementById('journalGrid');
+  if (!section || !grid) return;
+
+  try {
+    const res = await fetch('/api/journal');
+    if (!res.ok) throw new Error(`${res.status}`);
+    const { items } = await res.json();
+    if (!items || items.length === 0) return;
+
+    grid.innerHTML = items.map(item => `
+      <a href="${escHtml(item.link)}" class="journal__card" target="_blank" rel="noopener noreferrer">
+        ${item.date ? `<p class="journal__date">${escHtml(item.date)}</p>` : ''}
+        <h3 class="journal__title">${escHtml(item.title)}</h3>
+        ${item.excerpt ? `<p class="journal__excerpt">${escHtml(item.excerpt)}</p>` : ''}
+      </a>
+    `).join('');
+
+    section.removeAttribute('hidden');
+    section.querySelectorAll('.journal__card').forEach(el => fadeObserver.observe(el));
+  } catch {
+    // Feed unavailable; section stays hidden
+  }
+})();
+
+function escHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+/* ============================================
+   SERVICE PARAM PRESELECTION
+   ============================================ */
+(function prefillService() {
+  const param = new URLSearchParams(location.search).get('service');
+  if (!param) return;
+  const sel = document.getElementById('service');
+  if (!sel) return;
+  const match = Array.from(sel.options).find(o =>
+    o.value && o.value.toLowerCase().replace(/\s+/g, '-').includes(param.toLowerCase())
+  );
+  if (match) {
+    sel.value = match.value;
+    setTimeout(() => {
+      document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+    }, 400);
+  }
+})();
 
 /* ============================================
    CONTACT FORM

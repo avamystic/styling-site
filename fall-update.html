@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>The Fall Update | Seasonal Wardrobe Styling in New York City</title>
+  <meta name="description" content="Seasonal wardrobe styling for fall in New York City. A limited engagement to reset your wardrobe for the season ahead.">
+  <meta name="author" content="Style with Ava">
+
+  <meta property="og:title"       content="The Fall Update | Style with Ava">
+  <meta property="og:description" content="Seasonal wardrobe styling for fall in New York City. A limited engagement to reset your wardrobe for the season ahead.">
+  <meta property="og:image"       content="/images/optimized/hero.jpg">
+  <meta property="og:url"         content="https://avasharbaf.com/fall-update">
+  <meta property="og:type"        content="website">
+
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Archivo:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap">
+
+  <style>
+    :root {
+      /* Inherit main palette */
+      --surface:           #E7E1D8;
+      --surface-alt:       #F1EDE6;
+      --ink:               #1C1816;
+      --ink-muted:         #5E554F;
+      --line:              #BFB4A8;
+      --accent:            #6E1F2A;
+      --on-accent:         #F3ECE4;
+      --deep:              #2B1F1B;
+      --on-deep:           #EFE7DD;
+      --on-deep-muted:     #C2AE9C;
+      --mahogany:          #5E3A21;
+      --on-mahogany:       #F1E6D8;
+      --on-mahogany-muted: #D2B79A;
+      --font-display: 'Marcellus', Georgia, serif;
+      --font-body:    'Archivo', Arial, sans-serif;
+      --font-mono:    'DM Mono', 'Courier New', monospace;
+      --sp-2: 8px;  --sp-3: 16px; --sp-4: 24px;
+      --sp-5: 40px; --sp-6: 64px; --sp-7: 104px;
+      --nav-height: 56px;
+      --max-width:  1200px;
+
+      /* Autumn accent */
+      --fall-amber: #C4751A;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; -webkit-text-size-adjust: 100%; }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--surface);
+      color: var(--ink);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; background: none; border: none; font: inherit; }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-width);
+      margin-inline: auto;
+      padding-inline: var(--sp-4);
+    }
+
+    @media (min-width: 768px) { .container { padding-inline: var(--sp-6); } }
+
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--fall-amber);
+      margin-bottom: var(--sp-3);
+    }
+
+    /* ---- NAV ---- */
+    .f-nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: var(--nav-height);
+      background-color: var(--deep);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+    }
+
+    .f-nav__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: var(--max-width);
+      margin-inline: auto;
+      padding-inline: var(--sp-4);
+    }
+
+    @media (min-width: 768px) { .f-nav__inner { padding-inline: var(--sp-6); } }
+
+    .f-nav__wordmark {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--on-deep);
+    }
+
+    .f-nav__back {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--on-deep-muted);
+      transition: color 0.2s;
+    }
+
+    .f-nav__back:hover { color: var(--on-deep); }
+
+    /* ---- HERO ---- */
+    .f-hero {
+      background-color: var(--deep);
+      padding-top: calc(var(--nav-height) + var(--sp-7));
+      padding-bottom: var(--sp-7);
+    }
+
+    .f-hero__inner {
+      max-width: 820px;
+    }
+
+    .f-hero__headline {
+      font-family: var(--font-display);
+      font-size: clamp(48px, 9vw, 100px);
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      color: var(--on-deep);
+      margin-bottom: var(--sp-5);
+      margin-top: var(--sp-3);
+    }
+
+    .f-hero__subline {
+      font-size: clamp(17px, 2vw, 21px);
+      line-height: 1.55;
+      color: var(--on-deep-muted);
+      max-width: 580px;
+    }
+
+    /* ---- STEPS ---- */
+    .f-steps {
+      background-color: var(--surface);
+      padding: var(--sp-7) 0;
+    }
+
+    .f-steps__heading {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4vw, 44px);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin-bottom: var(--sp-6);
+      margin-top: var(--sp-3);
+    }
+
+    .f-steps__list {
+      border-top: 1px solid var(--line);
+    }
+
+    .f-step {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--sp-3);
+      padding: var(--sp-5) 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    @media (min-width: 768px) {
+      .f-step {
+        grid-template-columns: 5fr 7fr;
+        gap: var(--sp-6);
+        align-items: start;
+      }
+    }
+
+    .f-step__num {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.05em;
+      color: var(--fall-amber);
+      margin-bottom: var(--sp-2);
+    }
+
+    .f-step__name {
+      font-family: var(--font-display);
+      font-size: clamp(22px, 3vw, 34px);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+    }
+
+    .f-step__desc {
+      font-size: clamp(15px, 1.5vw, 17px);
+      line-height: 1.7;
+      color: var(--ink-muted);
+    }
+
+    @media (min-width: 768px) {
+      .f-step__desc { padding-top: var(--sp-5); }
+    }
+
+    /* ---- LIMIT BAND ---- */
+    .f-limit {
+      background-color: var(--mahogany);
+      padding: var(--sp-6) 0;
+      text-align: center;
+    }
+
+    .f-limit__text {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      color: var(--on-mahogany-muted);
+    }
+
+    /* ---- CTA SECTION ---- */
+    .f-cta {
+      background-color: var(--surface-alt);
+      padding: var(--sp-7) 0;
+    }
+
+    .f-cta__inner {
+      max-width: 580px;
+    }
+
+    .f-cta__heading {
+      font-family: var(--font-display);
+      font-size: clamp(24px, 3.5vw, 38px);
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: var(--sp-5);
+      margin-top: var(--sp-3);
+    }
+
+    .f-cta__sub {
+      font-size: clamp(15px, 1.5vw, 17px);
+      line-height: 1.7;
+      color: var(--ink-muted);
+      margin-bottom: var(--sp-5);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      border: 1px solid transparent;
+      transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+
+    .btn--primary {
+      background-color: var(--accent);
+      color: var(--on-accent);
+      border-color: var(--accent);
+    }
+
+    .btn--primary:hover {
+      background-color: #5a1922;
+      border-color: #5a1922;
+    }
+
+    /* ---- FOOTER ---- */
+    .f-footer {
+      background-color: var(--deep);
+      color: var(--on-deep);
+      padding: var(--sp-6) 0;
+    }
+
+    .f-footer__inner {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-4);
+      align-items: flex-start;
+    }
+
+    @media (min-width: 768px) {
+      .f-footer__inner {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .f-footer__wordmark {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      letter-spacing: 0.12em;
+      color: var(--on-deep);
+    }
+
+    .f-footer__copy { font-size: 12px; color: var(--on-deep-muted); }
+
+    .f-footer__link {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      color: var(--on-deep-muted);
+      transition: color 0.2s;
+    }
+
+    .f-footer__link:hover { color: var(--on-deep); }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav class="f-nav" aria-label="Page navigation">
+    <div class="f-nav__inner">
+      <a href="/" class="f-nav__wordmark">Style with Ava</a>
+      <a href="/" class="f-nav__back">Back to main site</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="f-hero" aria-labelledby="fall-heading">
+    <div class="container">
+      <div class="f-hero__inner">
+        <p class="eyebrow">Fall 2026 &middot; New York City</p>
+        <h1 class="f-hero__headline" id="fall-heading">
+          The Fall<br>Update.
+        </h1>
+        <p class="f-hero__subline">A fresh season, shaped around you.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STEPS -->
+  <section class="f-steps" aria-labelledby="steps-heading">
+    <div class="container">
+      <p class="eyebrow">How it works</p>
+      <h2 class="f-steps__heading" id="steps-heading">Four steps.</h2>
+
+      <div class="f-steps__list">
+        <div class="f-step">
+          <div>
+            <p class="f-step__num">01</p>
+            <h3 class="f-step__name">Intake</h3>
+          </div>
+          <p class="f-step__desc">We start with a conversation about your life, your style, and what this season actually requires of you. Not a questionnaire. A real conversation.</p>
+        </div>
+
+        <div class="f-step">
+          <div>
+            <p class="f-step__num">02</p>
+            <h3 class="f-step__name">Plan</h3>
+          </div>
+          <p class="f-step__desc">I review what you have and map out a clear plan: what stays, what goes, and what specific pieces the season needs. You get a direction before anything is bought.</p>
+        </div>
+
+        <div class="f-step">
+          <div>
+            <p class="f-step__num">03</p>
+            <h3 class="f-step__name">Shop</h3>
+          </div>
+          <p class="f-step__desc">I source the pieces. Everything is chosen to work with what you already own and to hold up past the season. You try them on. We edit together.</p>
+        </div>
+
+        <div class="f-step">
+          <div>
+            <p class="f-step__num">04</p>
+            <h3 class="f-step__name">Style</h3>
+          </div>
+          <p class="f-step__desc">We build looks and make sure everything works. You leave with a wardrobe that is ready, not a pile of new clothes and no plan.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIMIT -->
+  <div class="f-limit" aria-label="Availability note">
+    <div class="container">
+      <p class="f-limit__text">Limited to 3 clients. Applications close 10/31.</p>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <section class="f-cta" aria-labelledby="cta-heading">
+    <div class="container">
+      <div class="f-cta__inner">
+        <p class="eyebrow">Apply</p>
+        <h2 class="f-cta__heading" id="cta-heading">
+          Ready for a fall wardrobe that actually works?
+        </h2>
+        <p class="f-cta__sub">
+          Fill out the main application and select "The Fall Update" as your service. I'll be in touch within 48 hours.
+        </p>
+        <a href="/?service=fall-update#contact" class="btn btn--primary">
+          Apply for the Fall Update
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="f-footer" role="contentinfo">
+    <div class="container f-footer__inner">
+      <div>
+        <p class="f-footer__wordmark">STYLE WITH AVA</p>
+      </div>
+      <p class="f-footer__copy">&copy; 2026 Style with Ava</p>
+      <a href="/" class="f-footer__link">Back to main site</a>
+    </div>
+  </footer>
+
+</body>
+</html>

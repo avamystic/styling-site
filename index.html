@@ -4,20 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Style with Ava — Identity Stylist, NYC</title>
-  <meta name="description" content="Style with Ava is a New York–based identity styling practice with 20+ years of experience helping established professionals dress for who they're becoming.">
+  <title>Style with Ava | Personal Stylist in New York City</title>
+  <meta name="description" content="Personal styling for creatives, founders, and leaders. Wardrobe edits, event styling, and shopping, shaped around who you are.">
   <meta name="author" content="Style with Ava">
 
-  <meta property="og:title"       content="Style with Ava — Identity Stylist">
-  <meta property="og:description" content="Identity-first styling for professionals in transition. Style is a tool, not a costume.">
+  <meta property="og:title"       content="Style with Ava | Personal Stylist in New York City">
+  <meta property="og:description" content="Personal styling for creatives, founders, and leaders. Wardrobe edits, event styling, and shopping, shaped around who you are.">
   <meta property="og:image"       content="/images/optimized/hero.jpg">
   <meta property="og:url"         content="https://avasharbaf.com">
   <meta property="og:type"        content="website">
   <meta property="og:site_name"   content="Style with Ava">
 
   <meta name="twitter:card"        content="summary_large_image">
-  <meta name="twitter:title"       content="Style with Ava — Identity Stylist">
-  <meta name="twitter:description" content="Identity-first styling for professionals in transition.">
+  <meta name="twitter:title"       content="Style with Ava | Personal Stylist in New York City">
+  <meta name="twitter:description" content="Personal styling for creatives, founders, and leaders. Wardrobe edits, event styling, and shopping, shaped around who you are.">
   <meta name="twitter:image"       content="/images/optimized/hero.jpg">
 
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -31,6 +31,18 @@
 
 <body>
 
+  <!-- ANNOUNCEMENT BAR -->
+  <div class="announcement-bar" id="announcementBar" role="banner">
+    <div class="container announcement-bar__inner">
+      <a class="announcement-bar__link" id="announcementLink"></a>
+      <button class="announcement-bar__close" id="announcementClose" aria-label="Dismiss announcement">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
+          <line x1="1" y1="1" x2="11" y2="11"/><line x1="11" y1="1" x2="1" y2="11"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
   <!-- NAV -->
   <nav class="nav" id="nav" aria-label="Main navigation">
     <div class="nav__inner">
@@ -40,6 +52,7 @@
 
       <ul class="nav__menu" id="navMenu" role="list">
         <li><a href="#about"    class="nav__link">About</a></li>
+        <li><a href="#process"  class="nav__link">Process</a></li>
         <li><a href="#services" class="nav__link">Services</a></li>
         <li><a href="#contact"  class="nav__link">Contact</a></li>
       </ul>
@@ -58,14 +71,7 @@
 
   <main>
 
-    <!-- HERO — full-bleed with burgundy overlay -->
-    <!--
-      TAGLINE OPTIONS:
-        1. "Your outside should tell the story your inside already knows."
-        2. "Dress for who you're becoming, not who you've been."
-        3. "Style is a tool for transition. Not a costume for performance."
-      USING: Option 1.
-    -->
+    <!-- HERO -->
     <section id="home" class="hero" aria-labelledby="hero-name">
       <div class="hero__bg" aria-hidden="true">
         <img
@@ -80,29 +86,29 @@
 
       <div class="hero__content container">
         <p class="hero__eyebrow" style="opacity:0;animation:fadeUp .7s cubic-bezier(.25,.46,.45,.94) .1s forwards">
-          Identity Stylist &middot; New York City
+          Personal Stylist &middot; New York City
         </p>
         <h1 class="hero__headline" id="hero-name" style="opacity:0;animation:fadeUp .8s cubic-bezier(.25,.46,.45,.94) .25s forwards">
           Style<br>with Ava
         </h1>
         <p class="hero__tagline" style="opacity:0;animation:fadeUp .8s cubic-bezier(.25,.46,.45,.94) .45s forwards">
-          Your outside should tell the story your inside already knows.
+          Style that matches your point of view.
         </p>
         <div class="hero__cta-wrap" style="opacity:0;animation:fadeUp .8s cubic-bezier(.25,.46,.45,.94) .6s forwards">
           <a href="#contact" class="btn btn--primary">Apply to work together</a>
-          <p class="hero__note">[I work with a limited number of clients each season.]</p>
+          <p class="hero__note">I work with a limited number of clients each season.</p>
         </div>
       </div>
     </section>
 
-    <!-- ABOUT — portrait + text, mahogany -->
+    <!-- ABOUT -->
     <section id="about" class="about" aria-labelledby="about-heading">
       <div class="container">
         <div class="about__inner">
           <div class="about__media fade-up">
             <img
               src="/images/optimized/about.jpg"
-              alt="Ava Sharbaf, Identity Stylist"
+              alt="Ava Sharbaf, Personal Stylist"
               class="about__portrait"
               loading="lazy"
               decoding="async"
@@ -111,30 +117,91 @@
           <div class="about__content fade-up">
             <p class="eyebrow">About</p>
             <h2 class="about__heading" id="about-heading">
-              Style is the translation.<br>Identity is the original.
+              Style is more than the clothes you wear.
             </h2>
             <div class="about__text">
-              <p>Twenty years in style taught me one thing: the clothes are never really the point.</p>
-              <p>
-                I'm a lifelong visual artist—BFA in Fashion Design, years spent in New York's tech
-                and startup world—and I've spent my career watching how people use what they wear to
-                say something about who they are. Or who they're trying to become.
-              </p>
-              <p>
-                My process starts with identity, not inventory. Before we open a single drawer or
-                walk into a single store, we talk. About you. About the gap between how you're seen
-                and how you see yourself. About what you want your presence to say.
-              </p>
-              <p>
-                I work with established professionals—often in their 30s and 40s—whose outside no
-                longer matches their inside. People in transition: a new role, a new chapter, a new
-                sense of self.
-              </p>
+              <p>I have spent more than twenty years in style, working with people who are stepping into something new. A new role. A new chapter. A sense of self that has shifted and a wardrobe that has not caught up.</p>
+              <p>My practice is built around a signature process designed to surface your own point of view, not impose mine. We work from the inside out: who you are, how you want to be seen, and what it takes to close that gap.</p>
+              <p>I am a lifelong visual artist with a BFA in Fashion Design, and I have spent years working across New York's tech and startup world. That background matters. I understand the pace, the range of contexts you move through, and the kind of precision that actually makes a difference.</p>
             </div>
+            <ul class="about__facts">
+              <li>20+ years styling</li>
+              <li>BFA in Fashion Design</li>
+              <li>Tech and startup background, NYC</li>
+            </ul>
             <blockquote class="about__pullquote">
-              I don't tell people what to wear. They tell me, through my process.
+              I don't tell people what to wear. They tell me, through our process using my signature method.
             </blockquote>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process" class="process" aria-labelledby="process-heading">
+      <div class="container">
+        <div class="process__header fade-up">
+          <p class="eyebrow">Process</p>
+          <h2 class="process__heading" id="process-heading">The Process</h2>
+          <p class="process__intro">Six steps, three phases. A method built to move from where you are to where you want to be.</p>
+        </div>
+
+        <div class="process__steps">
+
+          <div class="process__phase-label fade-up">Discover</div>
+
+          <div class="process__step fade-up">
+            <div class="process__step-left">
+              <span class="process__step-num">01</span>
+              <h3 class="process__step-name">Intake</h3>
+            </div>
+            <p class="process__step-desc">A conversation about who you are, where you are headed, and what you want your presence to say. We cover your life, your work, and the gap between how you are seen and how you see yourself.</p>
+          </div>
+
+          <div class="process__step fade-up">
+            <div class="process__step-left">
+              <span class="process__step-num">02</span>
+              <h3 class="process__step-name">Audit</h3>
+            </div>
+            <p class="process__step-desc">We go through what you own together. What you reach for, what you avoid, and what has been sitting untouched for years. No judgment. Just clarity about what is actually there.</p>
+          </div>
+
+          <div class="process__phase-label fade-up">Edit</div>
+
+          <div class="process__step fade-up">
+            <div class="process__step-left">
+              <span class="process__step-num">03</span>
+              <h3 class="process__step-name">Edit</h3>
+            </div>
+            <p class="process__step-desc">We decide what stays and what goes. Every piece has a reason. The ones we keep become the foundation for everything that follows.</p>
+          </div>
+
+          <div class="process__phase-label fade-up">Express</div>
+
+          <div class="process__step fade-up">
+            <div class="process__step-left">
+              <span class="process__step-num">04</span>
+              <h3 class="process__step-name">Direction</h3>
+            </div>
+            <p class="process__step-desc">You receive a clear style direction built around your actual life. Not a template. Not a mood board. A real framework you can use on your own, long after we are done.</p>
+          </div>
+
+          <div class="process__step fade-up">
+            <div class="process__step-left">
+              <span class="process__step-num">05</span>
+              <h3 class="process__step-name">Source</h3>
+            </div>
+            <p class="process__step-desc">I research and find the pieces that fill the gaps. Each one is chosen to fit what you already have and what you are building toward. You are not doing any of the shopping.</p>
+          </div>
+
+          <div class="process__step fade-up">
+            <div class="process__step-left">
+              <span class="process__step-num">06</span>
+              <h3 class="process__step-name">Wear</h3>
+            </div>
+            <p class="process__step-desc">You try things on. I am there to edit in real time. We refine until it feels like you, not like a version of someone else's taste.</p>
+          </div>
+
         </div>
       </div>
     </section>
@@ -150,7 +217,7 @@
               How<br>We<br>Work
             </h2>
           </div>
-          <p class="services__intro">Not sure where to start? That's part of the process. We focus on clarity, direction, and building a wardrobe that actually works for your life.</p>
+          <p class="services__intro">Not sure where to start? That is part of the process. We focus on clarity, direction, and building a wardrobe that actually works for your life.</p>
         </div>
 
         <div class="services__primary">
@@ -159,38 +226,36 @@
               <p class="services__offering-num">01</p>
               <h3 class="services__offering-name">The Style Session</h3>
             </div>
-            <p class="services__offering-desc">A focused session working exclusively with what you already own. We build outfits, identify patterns, and create clear direction for how to get dressed day to day.</p>
+            <p class="services__offering-desc">A focused session working exclusively with what you already own. We build outfits, identify patterns, and create clear direction for how to get dressed every day.</p>
           </div>
           <div class="services__offering fade-up">
             <div class="services__offering-header">
               <p class="services__offering-num">02</p>
               <h3 class="services__offering-name">The Closet Edit</h3>
             </div>
-            <p class="services__offering-desc">A full wardrobe review to decide what stays, what goes, and what's missing. We create structure, eliminate friction, and establish a strong foundation.</p>
+            <p class="services__offering-desc">A full wardrobe review to decide what stays, what goes, and what is missing. We create structure, eliminate friction, and establish a strong foundation.</p>
           </div>
           <div class="services__offering fade-up">
             <div class="services__offering-header">
               <p class="services__offering-num">03</p>
-              <h3 class="services__offering-name">The Closet Edit + Build</h3>
+              <h3 class="services__offering-name">The Closet Edit and Build</h3>
             </div>
-            <p class="services__offering-desc">A complete wardrobe reset. We edit first, then strategically add pieces to fully align your closet with your lifestyle, needs, and style goals.</p>
+            <p class="services__offering-desc">Everything in The Closet Edit, plus a sourcing phase. We fill the gaps with considered pieces that align with your lifestyle, goals, and the wardrobe we built together.</p>
+          </div>
+          <div class="services__offering fade-up">
+            <div class="services__offering-header">
+              <p class="services__offering-num">04</p>
+              <h3 class="services__offering-name">Event Styling</h3>
+            </div>
+            <p class="services__offering-desc">You have a specific occasion and you want to feel right for it. We start with context, work through options, and land on something unmistakably you.</p>
           </div>
         </div>
 
-        <div class="services__secondary fade-up">
-          <p class="services__secondary-label">Also available</p>
-          <div class="services__secondary-grid">
-            <div class="services__secondary-item">
-              <h3 class="services__secondary-name">Personal Shopping</h3>
-              <p class="services__secondary-desc">I source and you try on, in store and online, and we notice what feels like you.</p>
-            </div>
-            <div class="services__secondary-item">
-              <h3 class="services__secondary-name">Seasonal Refresh</h3>
-              <p class="services__secondary-desc">A light update for the season ahead, for those with a wardrobe foundation.</p>
-            </div>
-            <div class="services__secondary-item">
-              <h3 class="services__secondary-name">Monthly Retainer</h3>
-              <p class="services__secondary-desc">Ongoing support as your life and style evolve.</p>
+        <div class="services__white-glove fade-up">
+          <div class="services__white-glove-inner">
+            <div>
+              <h3 class="services__white-glove-name">White Glove Retainer</h3>
+              <p class="services__white-glove-desc">Ongoing access to styling support as your life evolves. For clients who want a consistent partner, not a one-time service.</p>
             </div>
           </div>
         </div>
@@ -202,7 +267,7 @@
       </div>
     </section>
 
-    <!-- IMAGE BAND — Flatiron, full-width, between Services and Contact -->
+    <!-- IMAGE BAND — Flatiron -->
     <div class="image-band" aria-hidden="true">
       <img
         src="/images/optimized/detail-1.jpg"
@@ -214,11 +279,7 @@
       <div class="image-band__overlay"></div>
     </div>
 
-    <!-- TESTIMONIALS
-         Quotes with placeholder:true are shown only on localhost / *.pages.dev.
-         On a custom domain, only real quotes (placeholder:false) appear.
-         If no real quotes exist, the section is hidden entirely.
-         See the TESTIMONIALS array in script.js to add or update quotes. -->
+    <!-- TESTIMONIALS -->
     <section id="testimonials" class="testimonials" aria-label="Client testimonials" tabindex="-1">
       <div class="container testimonials__inner">
         <div class="testimonials__stage" id="testimonialStage" aria-live="polite" aria-atomic="true"></div>
@@ -231,6 +292,14 @@
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="7 4 13 10 7 16"/></svg>
           </button>
         </div>
+      </div>
+    </section>
+
+    <!-- JOURNAL -->
+    <section id="journal" class="journal" aria-labelledby="journal-heading" hidden>
+      <div class="container">
+        <p class="eyebrow" id="journal-heading">From the Journal</p>
+        <div class="journal__grid" id="journalGrid"></div>
       </div>
     </section>
 
@@ -290,10 +359,9 @@
                     <option value="">Not sure yet</option>
                     <option value="The Style Session">The Style Session</option>
                     <option value="The Closet Edit">The Closet Edit</option>
-                    <option value="The Closet Edit + Build">The Closet Edit + Build</option>
-                    <option value="Personal Shopping">Personal Shopping</option>
-                    <option value="Seasonal Refresh">Seasonal Refresh</option>
-                    <option value="Monthly Retainer">Monthly Retainer</option>
+                    <option value="The Closet Edit and Build">The Closet Edit and Build</option>
+                    <option value="Event Styling">Event Styling</option>
+                    <option value="The Fall Update">The Fall Update</option>
                   </select>
                   <span class="form-select-arrow" aria-hidden="true"></span>
                 </div>
@@ -341,8 +409,8 @@
         <p class="footer__wordmark">STYLE WITH AVA</p>
         <p class="footer__location">New York City</p>
       </div>
-      <p class="footer__copy">&copy; 2026 Style with Ava. All rights reserved.</p>
-      <nav class="footer__social" aria-label="Social links">
+      <p class="footer__copy">&copy; 2026 Style with Ava</p>
+      <nav class="footer__nav" aria-label="Footer links">
         <a href="https://www.linkedin.com/in/avasharbaf/" class="footer__social-link" aria-label="LinkedIn" target="_blank" rel="noopener">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <rect x="2" y="2" width="20" height="20" rx="3"/>
@@ -352,6 +420,9 @@
             <line x1="11" y1="10" x2="11" y2="17"/>
           </svg>
         </a>
+        <a href="https://substack.com/@avamystic/subscribe" class="footer__text-link" target="_blank" rel="noopener">Subscribe</a>
+        <a href="/halloween" class="footer__text-link">Halloween</a>
+        <a href="/fall-update" class="footer__text-link">Fall Update</a>
       </nav>
     </div>
   </footer>
