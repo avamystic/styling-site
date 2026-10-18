@@ -151,6 +151,32 @@
       max-width: 580px;
     }
 
+    .f-hero__intro {
+      margin-top: var(--sp-4);
+      font-size: clamp(14px, 1.4vw, 16px);
+      line-height: 1.7;
+      color: var(--on-deep-muted);
+      opacity: 0.75;
+      max-width: 480px;
+      font-family: var(--font-mono);
+      letter-spacing: 0.02em;
+    }
+
+    /* ---- IMAGE BAND ---- */
+    .f-img-band {
+      width: 100%;
+      overflow: hidden;
+      line-height: 0;
+    }
+
+    .f-img-band img {
+      width: 100%;
+      max-height: 65vh;
+      object-fit: cover;
+      object-position: center 40%;
+      display: block;
+    }
+
     /* ---- STEPS ---- */
     .f-steps {
       background-color: var(--surface);
@@ -341,9 +367,15 @@
           The Fall<br>Update.
         </h1>
         <p class="f-hero__subline">A fresh upgrade for your fall wardrobe.</p>
+        <p class="f-hero__intro">For anyone with a wardrobe foundation who wants to update the season.</p>
       </div>
     </div>
   </section>
+
+  <!-- FALL IMAGE BAND -->
+  <div class="f-img-band" aria-hidden="true">
+    <img src="/images/optimized/fall.jpg" alt="" loading="lazy">
+  </div>
 
   <!-- STEPS -->
   <section class="f-steps" aria-labelledby="steps-heading">
@@ -419,7 +451,10 @@
         <p class="f-footer__wordmark">STYLE WITH AVA</p>
       </div>
       <p class="f-footer__copy">&copy; 2026 Style with Ava</p>
-      <a href="/" class="f-footer__link">Back to main site</a>
+      <div style="display:flex;flex-direction:column;gap:6px;align-items:flex-end;">
+        <a href="/" class="f-footer__link">Back to main site</a>
+        <span class="f-footer__copy" style="font-size:11px;">Film photography by Ava Sharbaf.</span>
+      </div>
     </div>
   </footer>
 
